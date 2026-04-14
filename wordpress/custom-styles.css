@@ -1,0 +1,857 @@
+/*
+ * Sri Shivasankalpa Vṛnda — Sacred Earth Design System
+ * Paste this ENTIRE file into: Appearance → Customize → Additional CSS
+ *
+ * This CSS works with Astra (free) theme and standard WordPress blocks.
+ * Spectra plugin blocks will inherit these styles automatically.
+ */
+
+/* ============================================
+   1. CSS VARIABLES — SACRED EARTH PALETTE
+   ============================================ */
+
+:root {
+  --sv-gold: #C4841D;
+  --sv-gold-hover: #A86E15;
+  --sv-saffron: #B8621B;
+  --sv-earth: #3D2B1F;
+  --sv-earth-light: #4A3628;
+  --sv-ivory: #FAF6F0;
+  --sv-sage: #6B7F5E;
+  --sv-charcoal: #2C2C2C;
+  --sv-light-text: #FAF6F0;
+  --sv-border-light: #E8E0D4;
+  --sv-shadow: rgba(61, 43, 31, 0.08);
+
+  --sv-font-heading: 'Cormorant Garamond', Georgia, serif;
+  --sv-font-body: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+  --sv-font-sanskrit: 'Noto Serif Devanagari', serif;
+
+  --sv-radius: 4px;
+  --sv-radius-lg: 8px;
+  --sv-section-padding: 80px;
+  --sv-section-padding-mobile: 48px;
+  --sv-container-width: 1200px;
+}
+
+/* ============================================
+   2. GLOBAL OVERRIDES
+   ============================================ */
+
+body {
+  background-color: var(--sv-ivory);
+  color: var(--sv-charcoal);
+}
+
+/* Load Noto Serif Devanagari for Sanskrit text */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&display=swap');
+
+/* ============================================
+   3. TYPOGRAPHY
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--sv-font-heading);
+  color: var(--sv-earth);
+  line-height: 1.25;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; }
+h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 600; }
+h3 { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 600; }
+h4 { font-size: clamp(1.1rem, 2.5vw, 1.4rem); font-weight: 600; }
+
+p, li, td, th, label, input, textarea, select {
+  font-family: var(--sv-font-body);
+}
+
+/* Sanskrit / Devanagari text class */
+.sv-sanskrit {
+  font-family: var(--sv-font-sanskrit);
+  font-size: 1.4em;
+  line-height: 1.6;
+  color: var(--sv-earth);
+}
+
+.sv-sanskrit-large {
+  font-family: var(--sv-font-sanskrit);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+/* Translation / subtitle style */
+.sv-translation {
+  font-family: var(--sv-font-heading);
+  font-style: italic;
+  font-size: 1.2em;
+  color: var(--sv-saffron);
+  line-height: 1.6;
+}
+
+/* Overline / label style */
+.sv-overline {
+  font-family: var(--sv-font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sv-gold);
+}
+
+/* ============================================
+   4. LINKS
+   ============================================ */
+
+a {
+  color: var(--sv-saffron);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--sv-gold);
+}
+
+/* ============================================
+   5. BUTTONS
+   ============================================ */
+
+/* Primary button — Turmeric Gold */
+.wp-block-button .wp-block-button__link,
+.wp-block-button.is-style-fill .wp-block-button__link,
+.sv-btn-primary {
+  background-color: var(--sv-gold) !important;
+  color: #fff !important;
+  font-family: var(--sv-font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  padding: 14px 32px;
+  border-radius: var(--sv-radius);
+  border: 2px solid var(--sv-gold) !important;
+  transition: all 0.25s ease;
+  text-transform: none;
+}
+
+.wp-block-button .wp-block-button__link:hover,
+.sv-btn-primary:hover {
+  background-color: var(--sv-gold-hover) !important;
+  border-color: var(--sv-gold-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(196, 132, 29, 0.3);
+}
+
+/* Secondary button — Outline style */
+.wp-block-button.is-style-outline .wp-block-button__link,
+.sv-btn-secondary {
+  background-color: transparent !important;
+  color: var(--sv-earth) !important;
+  border: 2px solid var(--sv-earth) !important;
+  font-family: var(--sv-font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: var(--sv-radius);
+  transition: all 0.25s ease;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover,
+.sv-btn-secondary:hover {
+  background-color: var(--sv-earth) !important;
+  color: var(--sv-light-text) !important;
+}
+
+/* Button on dark backgrounds */
+.sv-section-dark .wp-block-button .wp-block-button__link {
+  background-color: var(--sv-gold) !important;
+  color: #fff !important;
+}
+
+/* Button on gold backgrounds */
+.sv-section-gold .wp-block-button .wp-block-button__link {
+  background-color: var(--sv-earth) !important;
+  color: var(--sv-light-text) !important;
+  border-color: var(--sv-earth) !important;
+}
+
+.sv-section-gold .wp-block-button .wp-block-button__link:hover {
+  background-color: var(--sv-earth-light) !important;
+}
+
+/* ============================================
+   6. SECTION UTILITIES
+   ============================================ */
+
+/* Standard section padding */
+.sv-section {
+  padding: var(--sv-section-padding) 0;
+}
+
+@media (max-width: 768px) {
+  .sv-section {
+    padding: var(--sv-section-padding-mobile) 0;
+  }
+}
+
+/* Dark section — Earth Brown background */
+.sv-section-dark {
+  background-color: var(--sv-earth) !important;
+  color: var(--sv-light-text) !important;
+  padding: var(--sv-section-padding) 0;
+}
+
+.sv-section-dark h1,
+.sv-section-dark h2,
+.sv-section-dark h3,
+.sv-section-dark h4,
+.sv-section-dark p,
+.sv-section-dark li {
+  color: var(--sv-light-text) !important;
+}
+
+.sv-section-dark .sv-overline {
+  color: var(--sv-gold) !important;
+}
+
+.sv-section-dark .sv-translation {
+  color: var(--sv-gold) !important;
+}
+
+/* Gold CTA section — Turmeric Gold background */
+.sv-section-gold {
+  background-color: var(--sv-gold) !important;
+  color: #fff !important;
+  padding: 60px 0;
+}
+
+.sv-section-gold h1,
+.sv-section-gold h2,
+.sv-section-gold h3,
+.sv-section-gold p {
+  color: #fff !important;
+}
+
+/* Ivory section (default — for explicit use) */
+.sv-section-ivory {
+  background-color: var(--sv-ivory) !important;
+  padding: var(--sv-section-padding) 0;
+}
+
+/* Subtle off-white for alternating sections */
+.sv-section-alt {
+  background-color: #F3ECE2 !important;
+  padding: var(--sv-section-padding) 0;
+}
+
+@media (max-width: 768px) {
+  .sv-section-dark,
+  .sv-section-gold,
+  .sv-section-ivory,
+  .sv-section-alt {
+    padding: var(--sv-section-padding-mobile) 0;
+  }
+}
+
+/* ============================================
+   7. HEADER — DONATE BUTTON IN NAV
+   ============================================ */
+
+/* Style the Donate menu item as a button */
+.main-header-menu .menu-item.donate-menu-btn > a,
+.ast-header-break-point .menu-item.donate-menu-btn > a {
+  background-color: var(--sv-gold) !important;
+  color: #fff !important;
+  padding: 10px 24px !important;
+  border-radius: var(--sv-radius) !important;
+  font-weight: 600 !important;
+  transition: all 0.25s ease;
+  margin-left: 8px;
+}
+
+.main-header-menu .menu-item.donate-menu-btn > a:hover {
+  background-color: var(--sv-gold-hover) !important;
+  transform: translateY(-1px);
+}
+
+/* Sticky header subtle shadow */
+.ast-sticky-active {
+  box-shadow: 0 2px 20px var(--sv-shadow) !important;
+}
+
+/* ============================================
+   8. HERO SECTIONS
+   ============================================ */
+
+/* Homepage hero */
+.sv-hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.sv-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(61, 43, 31, 0.55) 0%,
+    rgba(61, 43, 31, 0.70) 100%
+  );
+  z-index: 0;
+}
+
+.sv-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sv-hero h1 {
+  color: var(--sv-light-text) !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sv-hero p {
+  color: rgba(250, 246, 240, 0.9) !important;
+}
+
+/* Page hero (smaller, for inner pages) */
+.sv-page-hero {
+  padding: 100px 0 60px;
+  text-align: center;
+  background-color: var(--sv-earth);
+}
+
+.sv-page-hero h1 {
+  color: var(--sv-light-text) !important;
+  margin-bottom: 12px;
+}
+
+.sv-page-hero p {
+  color: rgba(250, 246, 240, 0.85) !important;
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   9. CARDS
+   ============================================ */
+
+.sv-card {
+  background: #fff;
+  border: 1px solid var(--sv-border-light);
+  border-radius: var(--sv-radius-lg);
+  padding: 32px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px var(--sv-shadow);
+}
+
+.sv-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(61, 43, 31, 0.12);
+}
+
+/* Featured card — for Maharudra on Events page */
+.sv-card-featured {
+  background: #fff;
+  border: 2px solid var(--sv-gold);
+  border-radius: var(--sv-radius-lg);
+  padding: 40px;
+  box-shadow: 0 4px 16px rgba(196, 132, 29, 0.12);
+}
+
+/* ============================================
+   10. PILLARS / ICON GRID
+   ============================================ */
+
+.sv-pillar {
+  text-align: center;
+  padding: 24px 16px;
+}
+
+.sv-pillar h3,
+.sv-pillar h4 {
+  color: var(--sv-earth);
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.sv-pillar p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Icon circle for pillars */
+.sv-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: rgba(196, 132, 29, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: var(--sv-gold);
+  font-size: 28px;
+}
+
+/* ============================================
+   11. CREDIBILITY STRIP
+   ============================================ */
+
+.sv-credibility-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 0;
+  border-top: 1px solid var(--sv-border-light);
+  border-bottom: 1px solid var(--sv-border-light);
+}
+
+.sv-credibility-item {
+  text-align: center;
+  max-width: 250px;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.sv-credibility-item strong {
+  display: block;
+  color: var(--sv-earth);
+  font-family: var(--sv-font-heading);
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+/* ============================================
+   12. SEVA TABLE
+   ============================================ */
+
+.sv-seva-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sv-font-body);
+}
+
+.sv-seva-table th {
+  background-color: var(--sv-earth);
+  color: var(--sv-light-text);
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.sv-seva-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--sv-border-light);
+}
+
+.sv-seva-table tr:nth-child(even) {
+  background-color: rgba(196, 132, 29, 0.04);
+}
+
+.sv-seva-table tr:hover {
+  background-color: rgba(196, 132, 29, 0.08);
+}
+
+.sv-seva-amount {
+  font-weight: 600;
+  color: var(--sv-earth);
+  white-space: nowrap;
+}
+
+/* ============================================
+   13. SCHEDULE TABLE
+   ============================================ */
+
+.sv-schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+}
+
+.sv-schedule-table th {
+  background-color: var(--sv-earth);
+  color: var(--sv-light-text);
+  padding: 12px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.sv-schedule-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--sv-border-light);
+  vertical-align: top;
+}
+
+.sv-schedule-table td:first-child {
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--sv-earth);
+  width: 180px;
+}
+
+/* Day header row */
+.sv-schedule-day {
+  background-color: rgba(196, 132, 29, 0.08) !important;
+  font-family: var(--sv-font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--sv-earth) !important;
+}
+
+/* ============================================
+   14. FAQ / ACCORDION
+   ============================================ */
+
+/* For Spectra FAQ block */
+.uagb-faq-wrap .uagb-faq-item {
+  border: 1px solid var(--sv-border-light) !important;
+  border-radius: var(--sv-radius) !important;
+  margin-bottom: 8px !important;
+  background: #fff !important;
+}
+
+.uagb-faq-wrap .uagb-faq-item .uagb-faq-questions-button {
+  padding: 18px 24px !important;
+  font-family: var(--sv-font-body) !important;
+  font-weight: 600 !important;
+  color: var(--sv-earth) !important;
+}
+
+.uagb-faq-wrap .uagb-faq-item .uagb-faq-content {
+  padding: 0 24px 18px !important;
+  color: #555 !important;
+  line-height: 1.7 !important;
+}
+
+/* ============================================
+   15. TABS (Payment Methods)
+   ============================================ */
+
+/* For Spectra Tabs block */
+.uagb-tabs__wrap .uagb-tabs__header .uagb-tab {
+  font-family: var(--sv-font-body) !important;
+  font-weight: 600 !important;
+  color: var(--sv-earth) !important;
+  border-bottom: 3px solid transparent !important;
+  padding: 12px 24px !important;
+}
+
+.uagb-tabs__wrap .uagb-tabs__header .uagb-tab.uagb-tabs__active {
+  color: var(--sv-gold) !important;
+  border-bottom-color: var(--sv-gold) !important;
+}
+
+.uagb-tabs__wrap .uagb-tabs__body-wrap {
+  padding: 32px 24px !important;
+  background: #fff !important;
+  border: 1px solid var(--sv-border-light) !important;
+  border-radius: 0 0 var(--sv-radius) var(--sv-radius) !important;
+}
+
+/* ============================================
+   16. TEAM / TRUSTEE BLOCKS
+   ============================================ */
+
+/* For Spectra Team block or manual layout */
+.sv-trustee {
+  text-align: center;
+  padding: 20px;
+}
+
+.sv-trustee img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--sv-border-light);
+  margin-bottom: 16px;
+}
+
+.sv-trustee h4 {
+  margin-bottom: 4px;
+  font-size: 1.15rem;
+}
+
+.sv-trustee .sv-trustee-role {
+  font-size: 0.9rem;
+  color: var(--sv-gold);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.sv-trustee p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ============================================
+   17. FOOTER
+   ============================================ */
+
+.site-footer {
+  background-color: var(--sv-earth) !important;
+  color: var(--sv-light-text) !important;
+}
+
+.site-footer h1,
+.site-footer h2,
+.site-footer h3,
+.site-footer h4,
+.site-footer .widget-title {
+  color: var(--sv-light-text) !important;
+  font-family: var(--sv-font-heading);
+}
+
+.site-footer a {
+  color: rgba(250, 246, 240, 0.75) !important;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--sv-gold) !important;
+}
+
+.site-footer .widget p,
+.site-footer .widget li {
+  color: rgba(250, 246, 240, 0.75) !important;
+  font-size: 0.95rem;
+}
+
+/* Footer bottom bar */
+.ast-small-footer,
+.site-below-footer-wrap {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  border-top: 1px solid rgba(250, 246, 240, 0.1);
+}
+
+.ast-small-footer .ast-footer-copyright,
+.site-below-footer-wrap p {
+  color: rgba(250, 246, 240, 0.6) !important;
+  font-size: 0.85rem;
+}
+
+/* Footer tagline in Devanagari */
+.sv-footer-tagline {
+  font-family: var(--sv-font-sanskrit);
+  font-size: 1rem;
+  color: rgba(250, 246, 240, 0.5);
+  margin-top: 8px;
+}
+
+/* ============================================
+   18. FORMS (WPForms)
+   ============================================ */
+
+.wpforms-container .wpforms-form .wpforms-field input,
+.wpforms-container .wpforms-form .wpforms-field textarea,
+.wpforms-container .wpforms-form .wpforms-field select {
+  border: 1px solid var(--sv-border-light) !important;
+  border-radius: var(--sv-radius) !important;
+  padding: 12px 16px !important;
+  font-family: var(--sv-font-body) !important;
+  font-size: 1rem !important;
+  background-color: #fff !important;
+  transition: border-color 0.2s ease;
+}
+
+.wpforms-container .wpforms-form .wpforms-field input:focus,
+.wpforms-container .wpforms-form .wpforms-field textarea:focus {
+  border-color: var(--sv-gold) !important;
+  box-shadow: 0 0 0 3px rgba(196, 132, 29, 0.1) !important;
+  outline: none !important;
+}
+
+.wpforms-container .wpforms-form button[type="submit"],
+.wpforms-container .wpforms-form .wpforms-submit {
+  background-color: var(--sv-gold) !important;
+  color: #fff !important;
+  font-family: var(--sv-font-body) !important;
+  font-weight: 600 !important;
+  padding: 14px 32px !important;
+  border-radius: var(--sv-radius) !important;
+  border: none !important;
+  font-size: 1rem !important;
+  transition: all 0.25s ease;
+}
+
+.wpforms-container .wpforms-form button[type="submit"]:hover {
+  background-color: var(--sv-gold-hover) !important;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   19. BLOG
+   ============================================ */
+
+.ast-article-post .entry-title a {
+  color: var(--sv-earth);
+  font-family: var(--sv-font-heading);
+  transition: color 0.2s ease;
+}
+
+.ast-article-post .entry-title a:hover {
+  color: var(--sv-gold);
+}
+
+.ast-article-post .entry-meta {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Blog card hover effect */
+.ast-article-post {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ast-article-post:hover {
+  transform: translateY(-2px);
+}
+
+/* Category badges */
+.cat-links a {
+  background-color: rgba(196, 132, 29, 0.1);
+  color: var(--sv-gold) !important;
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================
+   20. GALLERY (Envira)
+   ============================================ */
+
+.envira-gallery-wrap .envira-gallery-item img {
+  border-radius: var(--sv-radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.envira-gallery-wrap .envira-gallery-item:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(61, 43, 31, 0.15);
+}
+
+/* ============================================
+   21. UTILITIES
+   ============================================ */
+
+/* Center text */
+.sv-text-center { text-align: center; }
+
+/* Max width for readable text */
+.sv-max-readable {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Spacer */
+.sv-spacer-sm { height: 24px; }
+.sv-spacer-md { height: 48px; }
+.sv-spacer-lg { height: 80px; }
+
+/* Divider — subtle gold line */
+.sv-divider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--sv-gold);
+  margin: 24px auto;
+  border: none;
+}
+
+/* Image rounded */
+.sv-img-rounded { border-radius: var(--sv-radius-lg); }
+
+/* Blockquote styling */
+blockquote,
+.wp-block-quote {
+  border-left: 4px solid var(--sv-gold) !important;
+  padding: 16px 24px !important;
+  background-color: rgba(196, 132, 29, 0.04);
+  font-family: var(--sv-font-heading);
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--sv-earth);
+}
+
+/* Horizontal rule */
+hr,
+.wp-block-separator {
+  border-color: var(--sv-border-light) !important;
+  opacity: 1;
+}
+
+/* ============================================
+   22. RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .sv-hero {
+    min-height: 70vh;
+  }
+
+  .sv-page-hero {
+    padding: 80px 20px 40px;
+  }
+
+  .sv-credibility-strip {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .sv-schedule-table td:first-child {
+    width: auto;
+  }
+
+  .sv-section-gold {
+    padding: 40px 0;
+  }
+
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  .sv-card {
+    padding: 24px 20px;
+  }
+
+  .wp-block-button .wp-block-button__link {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   23. PRINT STYLES (for donation receipts etc.)
+   ============================================ */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .wp-block-button,
+  .sv-section-gold {
+    display: none !important;
+  }
+
+  body {
+    color: #000;
+    background: #fff;
+  }
+}

@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Shivasankalpa Vṛnda — Website Preview</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Serif+Devanagari:wght@400;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== RESET ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ========== VARIABLES ========== */
+    :root {
+      --gold: #C4841D;
+      --gold-hover: #A86E15;
+      --saffron: #B8621B;
+      --earth: #3D2B1F;
+      --earth-light: #4A3628;
+      --ivory: #FAF6F0;
+      --alt-bg: #F3ECE2;
+      --sage: #6B7F5E;
+      --charcoal: #2C2C2C;
+      --light-text: #FAF6F0;
+      --border: #E8E0D4;
+      --font-heading: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', 'Source Sans Pro', system-ui, sans-serif;
+      --font-sanskrit: 'Noto Serif Devanagari', serif;
+    }
+
+    body {
+      background: var(--ivory);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--earth);
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    a { color: var(--saffron); text-decoration: none; }
+    a:hover { color: var(--gold); }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    img { max-width: 100%; height: auto; }
+
+    /* ========== HEADER ========== */
+    .site-header {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(61,43,31,0.08);
+    }
+
+    .preview-banner + .site-header {
+      top: 0;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-brand {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--earth);
+    }
+
+    .site-brand small {
+      display: block;
+      font-family: var(--font-sanskrit);
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--saffron);
+      letter-spacing: 0.5px;
+    }
+
+    nav { display: flex; align-items: center; gap: 32px; }
+
+    nav a {
+      color: var(--charcoal);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .nav-donate {
+      background: var(--gold) !important;
+      color: #fff !important;
+      padding: 10px 24px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.25s;
+    }
+
+    .nav-donate:hover {
+      background: var(--gold-hover) !important;
+      color: #fff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(196,132,29,0.3);
+    }
+
+    /* ========== BUTTONS ========== */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #fff;
+      border-color: var(--gold);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-hover);
+      border-color: var(--gold-hover);
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(196,132,29,0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--earth);
+      border-color: var(--earth);
+    }
+
+    .btn-outline:hover {
+      background: var(--earth);
+      color: var(--light-text);
+    }
+
+    .btn-outline-light {
+      background: transparent;
+      color: var(--light-text);
+      border-color: rgba(250,246,240,0.5);
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(250,246,240,0.15);
+      color: #fff;
+    }
+
+    .btn-dark {
+      background: var(--earth);
+      color: var(--light-text);
+      border-color: var(--earth);
+    }
+
+    .btn-dark:hover {
+      background: var(--earth-light);
+      color: var(--light-text);
+    }
+
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-group-center { justify-content: center; }
+
+    /* ========== SECTIONS ========== */
+    section { padding: 80px 0; }
+
+    .section-alt { background: var(--alt-bg); }
+    .section-dark { background: var(--earth); color: var(--light-text); }
+    .section-dark h1, .section-dark h2, .section-dark h3, .section-dark h4, .section-dark p { color: var(--light-text); }
+    .section-gold { background: var(--gold); color: #fff; padding: 60px 0; }
+    .section-gold h2, .section-gold p { color: #fff; }
+
+    .text-center { text-align: center; }
+    .max-readable { max-width: 720px; margin-left: auto; margin-right: auto; }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      border: none;
+      margin: 24px auto;
+    }
+
+    .overline {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .sanskrit {
+      font-family: var(--font-sanskrit);
+      font-size: 1.4em;
+      line-height: 1.6;
+      color: var(--earth);
+    }
+
+    .sanskrit-large {
+      font-family: var(--font-sanskrit);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .translation {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.2em;
+      color: var(--saffron);
+      line-height: 1.6;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--earth);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(61,43,31,0.55), rgba(61,43,31,0.75));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 24px;
+      max-width: 800px;
+    }
+
+    .hero h1 { color: var(--light-text); text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    .hero p { color: rgba(250,246,240,0.9); }
+
+    .hero .blessing-line {
+      color: rgba(250,246,240,0.55);
+      font-size: 0.85rem;
+      margin-top: 40px;
+    }
+
+    /* ========== PAGE HERO ========== */
+    .page-hero {
+      padding: 100px 0 60px;
+      text-align: center;
+      background: var(--earth);
+    }
+
+    .page-hero h1 { color: var(--light-text); margin-bottom: 12px; }
+    .page-hero p { color: rgba(250,246,240,0.85); font-size: 1.15rem; }
+
+    /* ========== GRID ========== */
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+
+    @media (max-width: 900px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .grid-4 { grid-template-columns: 1fr; }
+      nav { display: none; }
+      section { padding: 48px 0; }
+      .hero { min-height: 70vh; }
+    }
+
+    /* ========== PILLARS ========== */
+    .pillar {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .pillar-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(196,132,29,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 28px;
+    }
+
+    .pillar h4 { margin-bottom: 8px; }
+    .pillar p { font-size: 0.95rem; color: #555; }
+
+    /* ========== CARDS ========== */
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 2px 8px rgba(61,43,31,0.06);
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(61,43,31,0.12);
+    }
+
+    .card h4 { color: var(--gold); margin-bottom: 8px; }
+
+    /* ========== CREDIBILITY STRIP ========== */
+    .credibility-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .credibility-item {
+      text-align: center;
+      max-width: 250px;
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .credibility-item strong {
+      display: block;
+      color: var(--earth);
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+    }
+
+    /* ========== SEVA TABLE ========== */
+    .seva-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .seva-table th {
+      background: var(--earth);
+      color: var(--light-text);
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    .seva-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .seva-table tr:nth-child(even) { background: rgba(196,132,29,0.04); }
+    .seva-table tr:hover { background: rgba(196,132,29,0.08); }
+
+    .seva-amount { font-weight: 600; color: var(--earth); white-space: nowrap; }
+
+    /* ========== FAQ ========== */
+    .faq-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+    }
+
+    .faq-q { font-weight: 600; color: var(--earth); margin-bottom: 8px; }
+    .faq-a { font-size: 0.95rem; color: #555; }
+
+    /* ========== TRUSTEE ========== */
+    .trustee { text-align: center; padding: 20px; }
+
+    .trustee-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: var(--alt-bg);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--border);
+      border: 3px solid var(--border);
+    }
+
+    .trustee h4 { margin-bottom: 4px; }
+    .trustee .role { font-size: 0.9rem; color: var(--gold); font-weight: 600; }
+    .trustee p { font-size: 0.9rem; color: #666; margin-top: 8px; }
+
+    /* ========== FOOTER ========== */
+    .site-footer {
+      background: var(--earth);
+      color: rgba(250,246,240,0.75);
+      padding: 60px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    .site-footer h4 {
+      color: var(--light-text);
+      font-size: 1rem;
+      margin-bottom: 16px;
+    }
+
+    .site-footer a { color: rgba(250,246,240,0.65); }
+    .site-footer a:hover { color: var(--gold); }
+    .site-footer ul { list-style: none; }
+    .site-footer li { margin-bottom: 8px; font-size: 0.95rem; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(250,246,240,0.1);
+      margin-top: 40px;
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(250,246,240,0.45);
+      background: rgba(0,0,0,0.15);
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--light-text);
+    }
+
+    .footer-tagline {
+      font-family: var(--font-sanskrit);
+      font-size: 0.9rem;
+      color: rgba(250,246,240,0.45);
+      margin-top: 4px;
+    }
+
+    /* ========== PREVIEW NOTICE ========== */
+    .preview-banner {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      font-family: var(--font-body);
+      letter-spacing: 0.5px;
+    }
+
+    .preview-banner strong { color: #fff; }
+
+    /* Active nav link highlight */
+    nav a.nav-active {
+      color: var(--gold) !important;
+    }
+  </style>
+</head>
+<body>
+
+<!-- PREVIEW NOTICE -->
+<div class="preview-banner">
+  <strong>DESIGN PREVIEW</strong> — Use the navigation bar to switch between pages.
+</div>
+
+<!-- ============================================
+     HEADER (shared)
+     ============================================ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" onclick="showPage('home'); return false;" class="site-brand" style="text-decoration:none; color:inherit;">
+      Sri Shivasankalpa Vṛnda
+      <small>तन्मे मनः शिवसंकल्पमस्तु</small>
+    </a>
+    <nav>
+      <a href="#" onclick="showPage('about'); return false;" id="nav-about">About Us</a>
+      <a href="#" onclick="showPage('events'); return false;" id="nav-events">Events</a>
+      <a href="#" id="nav-gallery">Gallery</a>
+      <a href="#" id="nav-blog">Blog</a>
+      <a href="#" onclick="showPage('contact'); return false;" id="nav-contact">Contact</a>
+      <a href="#" onclick="showPage('donate'); return false;" class="nav-donate" id="nav-donate">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================
+     HOME PAGE
+     ============================================ -->
+<div id="page-home">
+
+  <!-- HERO -->
+  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?w=1600&q=80');">
+    <div class="hero-content">
+      <h1 class="sanskrit-large" style="color: var(--light-text); margin-bottom: 8px;">तन्मे मनः शिवसंकल्पमस्तु</h1>
+      <p class="translation" style="color: rgba(250,246,240,0.9); margin-bottom: 8px;"><em>May our minds be filled with auspicious resolve.</em></p>
+      <p style="color: rgba(250,246,240,0.75); font-size: 1.1rem; margin-bottom: 32px;">Supporting Vedic Gurukulas · Preserving the Guru–Shishya Paramparā</p>
+      <div class="btn-group btn-group-center">
+        <a href="#" onclick="showPage('donate')" class="btn btn-primary">Support a Gurukula</a>
+        <a href="#mission" class="btn btn-outline-light">Our Mission ↓</a>
+      </div>
+      <p class="blessing-line">With the blessings of the Ubhaya Jagadgurus of Dakshinamnaya Sri Sharada Peetham, Sringeri</p>
+    </div>
+  </section>
+
+  <!-- MISSION POSITIONING -->
+  <section id="mission" style="padding: 80px 0;">
+    <div class="container text-center">
+      <h2>We don't run a Gurukulam. We ensure they thrive.</h2>
+      <hr class="divider">
+      <p class="max-readable" style="font-size: 1.1rem; line-height: 1.8;">Sri Shivasankalpa Vṛnda is a trust dedicated to the support and upliftment of Vedic Gurukulas across India. We identify their needs, create awareness about their invaluable work, generate resources through community engagement, and help them grow sustainably.</p>
+      <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 16px;">We are the bridge between those who cherish Vedic Dharma and the Gurukulas that keep it alive.</p>
+      <div style="margin-top: 32px;">
+        <a href="#" onclick="showPage('about')" class="btn btn-outline">About the Trust →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE SERVE -->
+  <section class="section-alt">
+    <div class="container">
+      <h2 class="text-center" style="margin-bottom: 48px;">How We Serve</h2>
+      <div class="grid-4">
+        <div class="pillar">
+          <div class="pillar-icon">🔍</div>
+          <h4>Identify Needs</h4>
+          <p>We work closely with Veda Gurukulas to understand their real challenges — from infrastructure gaps to student welfare.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🪔</div>
+          <h4>Create Awareness</h4>
+          <p>Through sacred events and storytelling, we bring the world of Gurukulas — their dedication and significance — to a wider audience.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🙏</div>
+          <h4>Generate Support</h4>
+          <p>We mobilize resources — financial, material, and human — so that Gurukulas can focus on preserving the Vedas.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌱</div>
+          <h4>Foster Growth</h4>
+          <p>From Vedic research and libraries to Gośālā development, we nurture the entire ecosystem around Vedic learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED EVENT -->
+  <section class="section-dark" style="padding: 80px 0;">
+    <div class="container text-center">
+      <p class="overline" style="color: var(--gold); margin-bottom: 16px;">Upcoming Event</p>
+      <h2 style="margin-bottom: 8px;">Mahā Rudra Puraścaraṇa — For Loka Kalyāṇa</h2>
+      <p style="color: rgba(250,246,240,0.65); font-size: 1.05rem; margin-bottom: 24px;">May 15–17, 2026 · Hoysala Trust, Hosakerehalli, Bengaluru</p>
+      <p class="max-readable" style="color: rgba(250,246,240,0.85); font-size: 1.05rem; line-height: 1.8;">A three-day sacred programme of Rudra Japa, Abhisheka, and Homa — performed with Veda Gurukula Adhyapakas and students. Organized for universal welfare and the preservation of Vedic education.</p>
+      <div class="btn-group btn-group-center" style="margin-top: 32px;">
+        <a href="#" onclick="showPage('events')" class="btn btn-primary">View Full Schedule & Seva Options →</a>
+        <a href="#" onclick="showPage('donate')" class="btn btn-outline-light">Offer a Seva →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY GURUKULAS MATTER -->
+  <section style="padding: 80px 0;">
+    <div class="container text-center">
+      <p class="sanskrit" style="margin-bottom: 16px;">गण्यन्ते पांसवो भूमेः | गण्यन्ते वृष्टिबन्दवः ||<br>विधात्राऽपि न गण्यन्ते | वेदाध्ययनतः फलम् ||</p>
+      <p class="translation" style="margin-bottom: 32px;"><em>"The particles of earth may be counted, the drops of rain may be counted. But even Brahmā, the Creator, cannot measure the fruits of Vedādhyayana."</em></p>
+      <hr class="divider">
+      <p class="max-readable" style="font-size: 1.05rem; line-height: 1.8;">For millennia, the Guru–Shishya Paramparā has preserved the Vedas through an unbroken chain of oral transmission — a living heritage unlike anything else in the world. Today, Gurukulas across India carry this sacred responsibility.</p>
+      <p class="max-readable" style="font-size: 1.05rem; line-height: 1.8; margin-top: 16px;">Yet many operate quietly, with limited resources and little public recognition. They need our collective support — not just to survive, but to flourish.</p>
+    </div>
+  </section>
+
+  <!-- CREDIBILITY STRIP -->
+  <div class="credibility-strip">
+    <div class="credibility-item">
+      <strong>Blessed by the Ubhaya Jagadgurus</strong>
+      of Sri Sringeri Sharada Peetham
+    </div>
+    <div class="credibility-item">
+      <strong>Registered Trust</strong>
+      Bengaluru, India
+    </div>
+    <div class="credibility-item">
+      <strong>Supporting Veda Gurukulas</strong>
+      Across India
+    </div>
+  </div>
+
+  <!-- DONATE CTA -->
+  <section class="section-gold">
+    <div class="container text-center">
+      <h2>Every contribution nurtures a tradition that has endured for millennia.</h2>
+      <p style="color: rgba(255,255,255,0.9); font-size: 1.05rem; margin-bottom: 32px;">Support Vedic Gurukulas through your generous offering of tanu, mana, and dhana — your service, devotion, and resources.</p>
+      <a href="#" onclick="showPage('donate')" class="btn btn-dark">Contribute Now →</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================
+     ABOUT US PAGE
+     ============================================ -->
+<div id="page-about" style="display:none;">
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>About Sri Shivasankalpa Vṛnda</h1>
+      <p>A trust born from the conviction that Vedic Gurukulas deserve our unwavering support.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2 class="text-center">Why We Exist</h2>
+      <hr class="divider">
+      <div class="max-readable" style="font-size: 1.05rem; line-height: 1.8;">
+        <p>Across India, Vedic Gurukulas quietly sustain one of humanity's greatest intellectual and spiritual traditions. Within their modest walls, young students rise before dawn to learn the Vedas through the same oral tradition that has been practiced for thousands of years.</p>
+        <p style="margin-top: 16px;">Yet these Gurukulas rarely make headlines. Many operate with limited funding, aging infrastructure, and almost no public visibility.</p>
+        <p style="margin-top: 16px; font-weight: 600;">Sri Shivasankalpa Vṛnda was founded to change this.</p>
+        <p style="margin-top: 16px;">We are not a Gurukulam. We are a trust that exists to ensure Gurukulas thrive. Our name comes from the Shukla Yajurveda — <strong>"तन्मे मनः शिवसंकल्पमस्तु"</strong> — <em>"May our minds be filled with auspicious resolve."</em></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="grid-2">
+        <div class="card">
+          <h3 style="color: var(--gold); margin-bottom: 16px;">Our Vision</h3>
+          <p style="font-size: 1.05rem; line-height: 1.8;">A world where every Vedic Gurukula has the resources, recognition, and community it needs to thrive — and where the Guru–Shishya Paramparā continues to illuminate generations.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--gold); margin-bottom: 16px;">Our Mission</h3>
+          <p style="font-size: 1.05rem; line-height: 1.8;">To identify the needs of Veda Gurukulas, create public awareness about their vital role, generate financial and community support, and foster their long-term growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container text-center">
+      <h2 style="margin-bottom: 48px;">The People Behind the Trust</h2>
+      <div class="grid-4">
+        <div class="trustee">
+          <div class="trustee-photo">👤</div>
+          <h4>Sri Harisha Harithasa</h4>
+          <div class="role">[Role — Placeholder]</div>
+          <p>[Bio to be added]</p>
+        </div>
+        <div class="trustee">
+          <div class="trustee-photo">👤</div>
+          <h4>Sri Bodhayana Jayasimha</h4>
+          <div class="role">[Role — Placeholder]</div>
+          <p>[Bio to be added]</p>
+        </div>
+        <div class="trustee">
+          <div class="trustee-photo">👤</div>
+          <h4>Sri AnantaNarayana Sharma</h4>
+          <div class="role">[Role — Placeholder]</div>
+          <p>[Bio to be added]</p>
+        </div>
+        <div class="trustee">
+          <div class="trustee-photo">👤</div>
+          <h4>Sri Naveen Harithasa</h4>
+          <div class="role">[Role — Placeholder]</div>
+          <p>[Bio to be added]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-gold">
+    <div class="container text-center">
+      <h2>Be a part of this mission.</h2>
+      <div class="btn-group btn-group-center" style="margin-top: 24px;">
+        <a href="#" onclick="showPage('donate')" class="btn btn-dark">Donate →</a>
+        <a href="#" onclick="showPage('events')" class="btn btn-outline-light">View Events →</a>
+        <a href="#" onclick="showPage('contact')" class="btn btn-outline-light">Contact Us →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================
+     EVENTS PAGE
+     ============================================ -->
+<div id="page-events" style="display:none;">
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Events & Initiatives</h1>
+      <p>Sacred gatherings in service of Vedic Dharma.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <p class="overline" style="margin-bottom: 16px;">Featured Event</p>
+      <div class="card" style="border: 2px solid var(--gold); padding: 40px;">
+        <h2 style="margin-bottom: 8px;">Mahā Rudra Puraścaraṇa</h2>
+        <p style="color: var(--gold); font-weight: 600;">For Loka Kalyāṇa — Universal Welfare</p>
+        <p style="color: #666; margin: 8px 0;"><strong>May 15–17, 2026</strong> · Hoysala Trust, Hosakerehalli, Bengaluru</p>
+        <p style="line-height: 1.7; margin-bottom: 24px;">A three-day programme of Rudra Japa, Abhisheka, and Homa, performed with Adhyapakas and students from Veda Gurukulas.</p>
+
+        <h3 style="color: var(--gold); margin: 32px 0 16px;">Programme Schedule</h3>
+        <table class="seva-table">
+          <thead><tr><th>Day</th><th>Time</th><th>Programme</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Day 1</strong><br>Fri, May 15</td><td>5:00 PM – 8:00 PM</td><td>Deepa Aaradhana · Devatha Prarthana · Maha Ganapati Puja · Svasti Vachana · Rakshoghna & Vastu Homa · Maha Mangalarathi</td></tr>
+            <tr><td></td><td>8:00 PM</td><td>Teertha Prasada Distribution</td></tr>
+            <tr><td><strong>Day 2</strong><br>Sat, May 16</td><td>7:30 AM onwards</td><td>Kalasha Sthapane · Sahasra Modaka Maha Ganapati Homa · Mahanyasa Poorvaka Maha Rudra Japa · Rudrabhisheka · Maha Mangalarathi</td></tr>
+            <tr><td></td><td>12:00 PM</td><td>Teertha Prasada Distribution</td></tr>
+            <tr><td><strong>Day 3</strong><br>Sun, May 17</td><td>7:30 AM onwards</td><td>Kalasha Aradhane · Kruchra Acharane · Maha Rudra Homa</td></tr>
+            <tr><td></td><td>12:00 PM</td><td>Poornahuti · Maha Mangalarathi · Ashtavadhana · Ashirvachana</td></tr>
+            <tr><td></td><td>1:00 PM</td><td>Teertha & Prasada Distribution</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="color: var(--gold); margin: 32px 0 16px;">Seva Opportunities</h3>
+        <table class="seva-table">
+          <thead><tr><th>Seva</th><th>Offering</th></tr></thead>
+          <tbody>
+            <tr><td>Pooja Sankalpa</td><td class="seva-amount">₹501</td></tr>
+            <tr><td>Ekadasha Rudrabhisheka</td><td class="seva-amount">₹2,001</td></tr>
+            <tr><td>Upakalasha Seva (1 Kalasha)</td><td class="seva-amount">₹5,001</td></tr>
+            <tr><td>Anna Santarpana — 10 people</td><td class="seva-amount">₹5,001</td></tr>
+            <tr><td>Shata Rudrabhisheka</td><td class="seva-amount">₹10,001</td></tr>
+            <tr><td>Alankara</td><td class="seva-amount">₹10,001</td></tr>
+            <tr><td>Rudra Homa Seva</td><td class="seva-amount">₹10,001</td></tr>
+            <tr><td>Anna Santarpana — 20 people</td><td class="seva-amount">₹10,001</td></tr>
+            <tr><td>Pradhana Kalasha Seva</td><td class="seva-amount">₹11,001</td></tr>
+            <tr><td>Anna Santarpana — 30 people</td><td class="seva-amount">₹15,001</td></tr>
+          </tbody>
+        </table>
+
+        <div class="btn-group" style="margin-top: 32px;">
+          <a href="#" onclick="showPage('donate')" class="btn btn-primary">Offer a Seva — Donate Now →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================
+     DONATE PAGE
+     ============================================ -->
+<div id="page-donate" style="display:none;">
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Your Offering Sustains a Timeless Tradition</h1>
+      <p class="max-readable">Every contribution — large or small — helps a Vedic Gurukula continue its sacred mission.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <h2>Why Your Support Matters</h2>
+      <hr class="divider" style="margin-left: 0;">
+      <div class="max-readable" style="margin-left: 0;">
+        <p style="font-size: 1.05rem; line-height: 1.8;">Vedic Gurukulas are among the last living institutions where the Vedas are transmitted exactly as they have been for thousands of years. Your donation directly supports:</p>
+      </div>
+      <div class="grid-4" style="margin-top: 32px;">
+        <div class="card"><h4>Vedic Education</h4><p style="font-size:0.95rem;">Learning materials, infrastructure, and student welfare</p></div>
+        <div class="card"><h4>Adhyapaka Welfare</h4><p style="font-size:0.95rem;">Recognition and sustenance for dedicated teachers</p></div>
+        <div class="card"><h4>Sacred Events</h4><p style="font-size:0.95rem;">Gatherings that build community and awareness</p></div>
+        <div class="card"><h4>Gurukula Growth</h4><p style="font-size:0.95rem;">Libraries, research, and long-term development</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <h2>How to Contribute</h2>
+      <p style="margin-bottom: 32px;">Choose your preferred method. All donations are received by Sri Shivasankalpa Vṛnda.</p>
+      <div class="grid-3">
+        <div class="card text-center">
+          <h3 style="color: var(--gold); margin-bottom: 16px;">Via UPI</h3>
+          <p style="font-size: 1.2rem; font-weight: 600; color: var(--earth); margin-bottom: 16px;">[UPI ID — Placeholder]</p>
+          <p style="font-size: 0.95rem;">Open any UPI app, enter the ID above, and complete the payment.</p>
+        </div>
+        <div class="card text-center">
+          <h3 style="color: var(--gold); margin-bottom: 16px;">Via QR Code</h3>
+          <div style="width: 180px; height: 180px; background: var(--alt-bg); border: 2px dashed var(--border); border-radius: 8px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.85rem;">QR Code<br>Placeholder</div>
+          <p style="font-size: 0.95rem;">Scan with any UPI-enabled app.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--gold); margin-bottom: 16px;">Via Bank Transfer</h3>
+          <table style="width: 100%; font-size: 0.95rem;">
+            <tr><td style="padding: 6px 0;"><strong>Account Name</strong></td><td>[Placeholder]</td></tr>
+            <tr><td style="padding: 6px 0;"><strong>Account No.</strong></td><td>[Placeholder]</td></tr>
+            <tr><td style="padding: 6px 0;"><strong>Bank</strong></td><td>[Placeholder]</td></tr>
+            <tr><td style="padding: 6px 0;"><strong>Branch</strong></td><td>[Placeholder]</td></tr>
+            <tr><td style="padding: 6px 0;"><strong>IFSC</strong></td><td>[Placeholder]</td></tr>
+          </table>
+        </div>
+      </div>
+      <div style="background: rgba(196,132,29,0.08); border: 1px solid var(--border); border-radius: 8px; padding: 20px 24px; margin-top: 32px;">
+        <p style="font-size: 0.95rem;"><strong>After donating:</strong> Share your transaction details at <a href="mailto:info@shivasankalpa.org">info@shivasankalpa.org</a>. We will send a confirmation and receipt.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2 style="margin-bottom: 32px;">Frequently Asked Questions</h2>
+      <div class="max-readable" style="margin-left: 0;">
+        <div class="faq-item"><p class="faq-q">Is my donation tax-exempt under Section 80G?</p><p class="faq-a">Our 80G registration is currently being processed. Once approved, all eligible donations will qualify for tax exemption.</p></div>
+        <div class="faq-item"><p class="faq-q">How will my donation be used?</p><p class="faq-a">Donations support Vedic Gurukula education, Adhyapaka welfare, sacred events, and trust operations.</p></div>
+        <div class="faq-item"><p class="faq-q">Can I donate for a specific seva?</p><p class="faq-a">Yes. Choose from the seva options on the Events page, or mention your preference when contacting us.</p></div>
+        <div class="faq-item"><p class="faq-q">Can I donate from outside India?</p><p class="faq-a">International options are being set up. Please write to info@shivasankalpa.org for assistance.</p></div>
+        <div class="faq-item"><p class="faq-q">Will I receive a receipt?</p><p class="faq-a">Yes. Email your transaction details to info@shivasankalpa.org for a confirmation receipt.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-dark" style="padding: 60px 0;">
+    <div class="container text-center">
+      <h2 class="sanskrit-large" style="color: var(--light-text);">॥ शिवसंकल्पमस्तु ॥</h2>
+      <p class="translation" style="color: var(--gold);"><em>May our minds be filled with auspicious resolve.</em></p>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================
+     CONTACT PAGE
+     ============================================ -->
+<div id="page-contact" style="display:none;">
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p>Questions, ideas, or want to volunteer? We would love to hear from you.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="grid-2" style="grid-template-columns: 2fr 3fr; gap: 48px;">
+        <div>
+          <h3 style="margin-bottom: 24px;">Contact Information</h3>
+          <p><strong>Email</strong><br><a href="mailto:info@shivasankalpa.org">info@shivasankalpa.org</a></p>
+          <p style="margin-top: 20px;"><strong>Location</strong><br>Bengaluru, India</p>
+          <div style="background: rgba(196,132,29,0.08); border-radius: 8px; padding: 24px; margin-top: 32px;">
+            <h4 style="color: var(--gold); margin-bottom: 8px;">Want to Volunteer?</h4>
+            <p style="font-size: 0.95rem;">We welcome volunteers for event organization, content creation, outreach, and more. Select "Volunteer" in the form.</p>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 24px;">Send Us a Message</h3>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <input type="text" placeholder="Your Name" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; font-family: var(--font-body);">
+            <input type="email" placeholder="Email Address" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; font-family: var(--font-body);">
+            <select style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; font-family: var(--font-body); color: #666;">
+              <option>General Inquiry</option>
+              <option>Donation Query</option>
+              <option>Volunteer</option>
+              <option>Event Inquiry</option>
+              <option>Other</option>
+            </select>
+            <textarea rows="5" placeholder="Your Message" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 4px; font-size: 1rem; font-family: var(--font-body); resize: vertical;"></textarea>
+            <button class="btn btn-primary" style="align-self: flex-start; border: none; cursor: pointer;">Send Message</button>
+          </div>
+          <p style="font-size: 0.85rem; color: #888; margin-top: 12px;">We typically respond within 2 business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================
+     FOOTER (shared)
+     ============================================ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Sri Shivasankalpa Vṛnda</div>
+      <div class="footer-tagline">तन्मे मनः शिवसंकल्पमस्तु</div>
+      <p style="font-size: 0.9rem; margin-top: 12px;">Supporting Vedic Gurukulas.<br>Preserving the Guru–Shishya Paramparā.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('home')">Home</a></li>
+        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+        <li><a href="#" onclick="showPage('events')">Events</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get Involved</h4>
+      <ul>
+        <li><a href="#" onclick="showPage('donate')">Donate</a></li>
+        <li><a href="#" onclick="showPage('contact')">Volunteer</a></li>
+        <li><a href="#">Spread the Word</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <p><strong style="color: var(--light-text);">Email:</strong><br><a href="mailto:info@shivasankalpa.org">info@shivasankalpa.org</a></p>
+      <p style="margin-top: 16px;"><strong style="color: var(--light-text);">Location:</strong><br>Bengaluru, India</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Sri Shivasankalpa Vṛnda · तन्मे मनः शिवसंकल्पमस्तु
+  </div>
+</footer>
+
+<script>
+  function showPage(page) {
+    document.querySelectorAll('[id^="page-"]').forEach(el => el.style.display = 'none');
+    document.getElementById('page-' + page).style.display = 'block';
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('nav-active'));
+    const navLink = document.getElementById('nav-' + page);
+    if (navLink) navLink.classList.add('nav-active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
